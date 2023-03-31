@@ -20,8 +20,18 @@
 // Main Function
 int main()
 {
-     
-     return 0;
+    char password[10];
+    printf("plzz Enter your Password : ");
+    scanf("%s", password);
+    
+    if (strcmp(password, "danger") == 0) {
+        printf("Entered correct password\n");
+    } else {
+        printf("Wrong password\n");
+    }
+    
+    return 0;
+    
 }
 
 // Program End
