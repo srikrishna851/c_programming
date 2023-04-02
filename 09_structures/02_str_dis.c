@@ -8,20 +8,47 @@
  *
  * Application: 
  * Brief: 
- * Author: Natarajan S  ( natarajan.s@ruggedboard.com )
- * Title: Program Manager / Trainner
- * Last Modified Date: 19.09.2022
+ * Author: srikrishna KN
+ * Title: Project engineer
+ * Last Modified Date: 31.03.2023
  *
 /*********************************************************************************************/
 
 // Header File
 #include <stdio.h>
 
-// Main Function
-int main()
-{
-     
-     return 0;
+struct Distance {
+    int feet;
+    float inch;
+};
+
+int main() {
+    struct Distance d1, d2, sum;
+    
+    printf("Enter 1st distance\n");
+    printf("Enter feet: ");
+    scanf("%d", &d1.feet);
+    printf("Enter inch: ");
+    scanf("%f", &d1.inch);
+    
+    printf("\nEnter 2nd distance\n");
+    printf("Enter feet: ");
+    scanf("%d", &d2.feet);
+    printf("Enter inch: ");
+    scanf("%f", &d2.inch);
+    
+    sum.feet = d1.feet + d2.feet;
+    sum.inch = d1.inch + d2.inch;
+    
+    if (sum.inch >= 12) {
+        sum.feet += (int)(sum.inch / 12);
+        sum.inch = sum.inch - 12 * (int)(sum.inch / 12);
+    }
+    
+    printf("\nSum of distances = %d\'-%.1f\"", sum.feet, sum.inch);
+    
+    return 0;
 }
+
 
 // Program End
