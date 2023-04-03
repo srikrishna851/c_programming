@@ -8,20 +8,46 @@
  *
  * Application: 
  * Brief: 
- * Author: Natarajan S  ( natarajan.s@ruggedboard.com )
- * Title: Program Manager / Trainner
- * Last Modified Date: 19.09.2022
+ * Author: srikrishna KN
+ * Title: Project engineer
+ * Last Modified Date: 03.04.2023
  *
 /*********************************************************************************************/
 
 // Header File
 #include <stdio.h>
 
-// Main Function
-int main()
-{
-     
-     return 0;
+struct Student {
+    int rollNumber;
+    char firstName[50];
+    float marks;
+};
+
+int main() {
+    struct Student students[5];
+
+    printf("Enter information of students:\n\n");
+
+    for (int i = 0; i < 5; i++) {
+        printf("For roll number%d,\n", i+1);
+        printf("Enter first name: ");
+        scanf("%s", students[i].firstName);
+        printf("Enter marks: ");
+        scanf("%f", &students[i].marks);
+        students[i].rollNumber = i+1;
+        printf("\n");
+    }
+
+    printf("Displaying Information:\n\n");
+
+    for (int i = 0; i < 5; i++) {
+        printf("Roll number: %d\n", students[i].rollNumber);
+        printf("First name: %s\n", students[i].firstName);
+        printf("Marks: %.1f\n\n", students[i].marks);
+    }
+
+    return 0;
 }
+
 
 // Program End
