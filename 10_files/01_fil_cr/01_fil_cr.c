@@ -8,20 +8,34 @@
  *
  * Application: 
  * Brief: 
- * Author: Natarajan S  ( natarajan.s@ruggedboard.com )
- * Title: Program Manager / Trainner
- * Last Modified Date: 19.09.2022
+ * Author: srikrishna KN
+ * Title: Project engineer
+ * Last Modified Date: 03.04.2023
  *
 /*********************************************************************************************/
 
 // Header File
 #include <stdio.h>
 
-// Main Function
-int main()
-{
-     
-     return 0;
+int main() {
+   FILE *fp;
+   char sentence[100];
+
+   printf("Input a sentence for the file: ");
+   fgets(sentence, 100, stdin);
+
+   fp = fopen("test.txt", "w");
+   if (fp == NULL) {
+      printf("Error creating file.");
+      return 1;
+   }
+
+   fprintf(fp, "%s", sentence);
+   fclose(fp);
+
+   printf("The file test.txt created successfully...!!");
+   return 0;
 }
+
 
 // Program End

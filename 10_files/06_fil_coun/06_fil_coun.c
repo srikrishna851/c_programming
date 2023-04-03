@@ -8,20 +8,70 @@
  *
  * Application: 
  * Brief: 
- * Author: Natarajan S  ( natarajan.s@ruggedboard.com )
- * Title: Program Manager / Trainner
- * Last Modified Date: 19.09.2022
+ * Author: srikrishna kn
+ * Title: Project engineer
+ * Last Modified Date: 03.04.2023
  *
 /*********************************************************************************************/
 
 // Header File
 #include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 
-// Main Function
+#define MAX_LENGTH 100
+
 int main()
 {
-     
+     char filename[MAX_LENGTH];
+     FILE *fp;
+     int char_count = 0, word_count = 0;
+     char c, prev = ' ';
+
+     printf("Count the number of words and characters in a file :\n");
+     printf("---------------------------------------------------------\n");
+
+     printf("Input the filename to be opened : ");
+     scanf("%s", filename);
+
+     fp = fopen(filename, "r");
+     if (fp == NULL)
+     {
+          printf("Failed to open file\n");
+          return 1;
+     }
+
+     while ((c = fgetc(fp)) != EOF)
+     {
+          char_count++;
+
+          if (isspace(c) && !isspace(prev))
+          {
+               word_count++;
+          }
+          prev = c;
+     }
+
+     fclose(fp);
+
+     printf("The content of the file %s are :\n", filename);
+     fp = fopen(filename, "r");
+     if (fp == NULL)
+     {
+          printf("Failed to open file\n");
+          return 1;
+     }
+     while ((c = fgetc(fp)) != EOF)
+     {
+          printf("%c", c);
+     }
+     fclose(fp);
+
+     printf("\nThe number of words in the file %s are : %d\n", filename, word_count);
+     printf("The number of characters in the file %s are : %d\n", filename, char_count);
+
      return 0;
 }
+
 
 // Program End

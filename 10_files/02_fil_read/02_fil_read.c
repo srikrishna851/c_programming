@@ -8,20 +8,38 @@
  *
  * Application: 
  * Brief: 
- * Author: Natarajan S  ( natarajan.s@ruggedboard.com )
- * Title: Program Manager / Trainner
- * Last Modified Date: 19.09.2022
+ * Author: srikrishna KN
+ * Title: Project engineer
+ * Last Modified Date: 03.04.2023
  *
 /*********************************************************************************************/
 
 // Header File
 #include <stdio.h>
 
-// Main Function
-int main()
-{
-     
-     return 0;
+int main() {
+   FILE *fp;
+   char filename[100];
+   char ch;
+
+   printf("Input the filename to be opened: ");
+   scanf("%s", filename);
+
+   fp = fopen(filename, "r");
+   if (fp == NULL) {
+      printf("Error opening file.");
+      return 1;
+   }
+
+   printf("The content of the file %s is:\n", filename);
+   while ((ch = fgetc(fp)) != EOF) {
+      printf("%c", ch);
+   }
+
+   fclose(fp);
+
+   return 0;
 }
+
 
 // Program End

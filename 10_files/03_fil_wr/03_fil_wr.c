@@ -8,20 +8,47 @@
  *
  * Application: 
  * Brief: 
- * Author: Natarajan S  ( natarajan.s@ruggedboard.com )
- * Title: Program Manager / Trainner
- * Last Modified Date: 19.09.2022
+ * Author: srikrishna KN
+ * Title: Project engineer
+ * Last Modified Date: 03.04.2023
  *
 /*********************************************************************************************/
+
 
 // Header File
 #include <stdio.h>
 
-// Main Function
 int main()
 {
-     
+     FILE *fptr;
+     char filename[100], sentence[1000];
+     int n, i;
+
+     printf("Input the number of lines to be written: ");
+     scanf("%d", &n);
+
+
+     fptr = fopen("test.txt", "w");
+
+     if (fptr == NULL)
+     {
+          printf("Error Creating File!");
+          return 1;
+     }
+
+
+     printf("\nThe lines are:\n");
+     for (i = 0; i < n + 1; ++i)
+     {
+          fgets(sentence, sizeof(sentence), stdin);
+          fprintf(fptr, "%s", sentence);
+     }
+
+     fclose(fptr);
+
+     printf("\nData written to the file test.txt successfully!\n");
+
      return 0;
 }
 
-// Program End
+

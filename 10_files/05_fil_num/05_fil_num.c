@@ -8,20 +8,43 @@
  *
  * Application: 
  * Brief: 
- * Author: Natarajan S  ( natarajan.s@ruggedboard.com )
- * Title: Program Manager / Trainner
- * Last Modified Date: 19.09.2022
+ * Author: srikrishna KN
+ * Title: Project engineer
+ * Last Modified Date: 03.04.2023
  *
 /*********************************************************************************************/
 
 // Header File
 #include <stdio.h>
 
-// Main Function
-int main()
-{
-     
-     return 0;
+int main() {
+    FILE *fp;
+    char filename[100];
+    int count = 0;
+    char ch;
+    printf("Read the file and count the number of lines :\n");
+
+    printf("Input the filename to be opened: ");
+    scanf("%s", filename);
+
+    fp = fopen(filename, "r");
+    if (fp == NULL) {
+        printf("Error opening file.");
+        return 1;
+    }
+
+    while ((ch = fgetc(fp)) != EOF) {
+        if (ch == '\n') {
+            count++;
+        }
+    }
+
+    fclose(fp);
+
+    printf("\nThe lines in the file %s are: %d", filename, count+1);
+
+    return 0;
 }
+
 
 // Program End
